@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-const httpServer = require("http").createServer();
 const cors = require("cors");
 const port = process.env.PORT || 5000;
+const httpServer = require("http").createServer();
 app.use(cors());
 
 /* Create instance */
