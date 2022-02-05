@@ -13,26 +13,23 @@ const io = require("socket.io")(httpServer, {
   },
 });
 
-function run() {
-  /* Main Connection */
-  io.on("connection", (socket) => {
-    /* Join Room */
-    socket.on("join_room", (data) => {
-      socket.join(data);
-    });
-
-    /* Send Messages */
-    socket.on("send_msg", (data) => {
-      socket.to(data.room).emit("receive_msg", data);
-    });
-
-    /* Disconnect */
-    socket.on("disconnect", () => {
-      console.log("disconnected");
-    });
+/* Main Connection */
+io.on("connection", (socket) => {
+  /* Join Room */
+  socket.on("join_room", (data) => {
+    socket.join(data);
   });
-}
-run();
+
+  /* Send Messages */
+  socket.on("send_msg", (data) => {
+    socket.to(data.room).emit("receive_msg", data);
+  });
+
+  /* Disconnect */
+  socket.on("disconnect", () => {
+    console.log("disconnected");
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("server running");
