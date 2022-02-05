@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
-const httpServer = require("http").createServer();
 app.use(cors());
 
 /* Create instance */
-const io = require("socket.io")(httpServer, {
+const io = new Server(server, {
   cors: {
     origin: "https://shakil-live.netlify.app",
     methods: ["GET", "POST"],
@@ -36,6 +38,6 @@ app.get("/", (req, res) => {
 });
 
 /* Port Listening */
-app.listen(port, () => {
+server.listen(port, () => {
   console.log("listening to", port);
 });
