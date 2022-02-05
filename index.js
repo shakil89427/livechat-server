@@ -33,6 +33,7 @@ io.on("connection", (socket) => {
   });
 });
 
+/* Checking route */
 app.get("/", (req, res) => {
   res.send("server running");
 });
