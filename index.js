@@ -31,12 +31,10 @@ io.on("connection", (socket) => {
   });
 });
 
-/* Check Server */
 app.get("/", (req, res) => {
   res.send("server running");
 });
 
-/* Port Listening */
-httpServer.listen(port, () => {
+app.listen(port, () => {
   console.log("listening to", port);
 });
