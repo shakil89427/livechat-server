@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const httpServer = require("http").createServer();
 const cors = require("cors");
-const port = 5000 || process.env.PORT;
+const port = process.env.PORT || 5000;
 app.use(cors());
 
 /* Create instance */
@@ -31,10 +31,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.send("server running");
-});
-
-app.listen(port, () => {
+/* Port Listening */
+httpServer.listen(port, () => {
   console.log("listening to", port);
 });
