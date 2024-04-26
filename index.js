@@ -35,10 +35,10 @@ io.on("connection", (socket) => {
 
 /* Checking route */
 app.get("/", (req, res) => {
-  res.send("server running");
+  res.send("Server running");
 });
 
 /* Port Listening */
 server.listen(port, () => {
-  console.log("listening to", port);
+  console.log("Listening to", port);
 });
