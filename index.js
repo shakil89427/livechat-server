@@ -10,8 +10,7 @@ app.use(cors());
 /* Create instance */
 const io = new Server(server, {
   cors: {
-    origin: "https://shakil-live.netlify.app",
-    methods: ["GET"],
+    origin: "https://shakil-live.netlify.app"
   },
 });
 
