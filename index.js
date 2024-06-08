@@ -11,7 +11,7 @@ app.use(cors());
 const io = new Server(server, {
   cors: {
     origin: "https://shakil-live.netlify.app",
-    methods: ["GET", "POST"],
+    methods: ["GET"],
   },
 });
 
